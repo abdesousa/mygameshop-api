@@ -8,6 +8,6 @@ package com.mygameshop.api.dto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public abstract class MainDTO {
+public class MainDTO {
 
 }

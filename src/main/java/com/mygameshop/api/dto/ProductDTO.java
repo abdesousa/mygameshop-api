@@ -1,5 +1,6 @@
 package com.mygameshop.api.dto;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -7,7 +8,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({ "productId", "productName", "productValue"})
-public class ProductDTO extends MainDTO{
+public class ProductDTO extends MainDTO  implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	private Integer productId;
 

@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "id",
     "message"
 })
-public class ErrorDTO implements Serializable {
+public class ErrorDTO extends MainDTO implements Serializable {
 
     private final static long serialVersionUID = 5743458502302735571L;
 
