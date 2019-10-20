@@ -30,16 +30,19 @@ public class ProductController {
     @Autowired
     private Messages messages;
 	
-    @Autowired
-    private ModelMapper modelMapper;
-	
-    @Autowired
     private ProductService service;
-
-
+    
+    private ModelMapper modelMapper;
+   
+    @Autowired
+    public ProductController(ProductService service,ModelMapper modelMapper) {
+        this.service = service;
+        this.modelMapper = modelMapper;
+    }    
+    
     @GetMapping("/product")
     @ResponseBody
-    public ResponseEntity<?> getProducts() {
+    public ResponseEntity<?> list() {
     	
     	List<Product> products = service.list();
     	  
@@ -57,12 +60,11 @@ public class ProductController {
 
     @GetMapping("/product/{id}")
     @ResponseBody
-    public ResponseEntity<?> getProduct(@PathVariable("id") Integer id) {
+    public ResponseEntity<?> getById(@PathVariable("id") Integer id) {
     	
     	Optional<Product> product = service.getById(Optional.ofNullable(id));
     	  
     	if (product.isPresent()) {  		
-    		
     		return new ResponseEntity<MainDTO>(convertToDto(product.get()), HttpStatus.OK); 
     		
     	} else {

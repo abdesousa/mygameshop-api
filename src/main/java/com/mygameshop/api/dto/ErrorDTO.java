@@ -21,7 +21,12 @@ public class ErrorDTO extends MainDTO implements Serializable {
     @JsonProperty("message")
     private String message;
     
-    public ErrorDTO(String id, String message) {
+    public ErrorDTO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public ErrorDTO(String id, String message) {
 		super();
 		this.id = id;
 		this.message = message;

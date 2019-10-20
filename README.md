@@ -35,6 +35,17 @@ Github repository
 https://github.com/abdesousa/paytrex-transaction-api.git
 ```
 
+## Decisions made:
+
+###### Exceptions
+- Usage of 
+
+
+
+
+
+
+
 ## Setup
 
 To build locally this repository you should execute ats-aggregator POM in order to build all dependencies.

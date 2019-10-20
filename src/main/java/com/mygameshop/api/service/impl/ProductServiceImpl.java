@@ -13,9 +13,13 @@ import com.mygameshop.api.service.ProductService;
 
 @Service
 public class ProductServiceImpl implements ProductService {
-
-    @Autowired
+    
     private ProductRepository productRepository;
+    
+    @Autowired
+    public ProductServiceImpl(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
     
 	@Override
 	public List<Product> list() {

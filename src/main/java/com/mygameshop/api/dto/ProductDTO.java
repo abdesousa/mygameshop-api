@@ -21,6 +21,15 @@ public class ProductDTO extends MainDTO  implements Serializable{
 	public ProductDTO() {
 		super();
 	}
+	
+
+	public ProductDTO(Integer productId, String productName, BigDecimal productValue) {
+		super();
+		this.productId = productId;
+		this.productName = productName;
+		this.productValue = productValue;
+	}
+
 
 	public Integer getProductId() {
 		return productId;

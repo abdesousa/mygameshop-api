@@ -23,9 +23,7 @@ public class Product {
 	
 	@Column(name = "product_nm")
 	private String productName;
-	
-	@Column(name = "create_user_id")
-	private String createUserId;
+
 
 	@Column(name = "product_vl")
 	private BigDecimal productValue;
@@ -41,8 +39,33 @@ public class Product {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date lastUpdtTs;
 	
+	
+	@Column(name = "create_user_id")
+	private String createUserId;
+	
 	public Product() {
 		super();
+	}
+
+	public Product(Integer productId, String productName, BigDecimal productValue) {
+		super();
+		this.productId = productId;
+		this.productName = productName;
+		this.productValue = productValue;
+	}
+
+	
+	
+	public Product(Integer productId, String productName, BigDecimal productValue, Date createTs, String createUserId,
+			Date lastUpdtTs, String lastUpdtUserId) {
+		super();
+		this.productId = productId;
+		this.productName = productName;
+		this.productValue = productValue;
+		this.createTs = createTs;
+		this.lastUpdtUserId = lastUpdtUserId;
+		this.lastUpdtTs = lastUpdtTs;
+		this.createUserId = createUserId;
 	}
 
 	public Integer getProductId() {
