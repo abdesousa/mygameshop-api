@@ -22,24 +22,33 @@ import com.mygameshop.api.dto.ProductDTO;
 import com.mygameshop.api.persistence.model.Product;
 import com.mygameshop.api.service.ProductService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
+@Api(value="product", description="Operations pertaining to products in My Game Shop Online Store")
 @CrossOrigin()
 @RestController
 public class ProductController {
 	
-	
-    @Autowired
     private Messages messages;
-	
     private ProductService service;
-    
     private ModelMapper modelMapper;
    
     @Autowired
-    public ProductController(ProductService service,ModelMapper modelMapper) {
+    public ProductController(ProductService service,ModelMapper modelMapper, Messages messages) {
         this.service = service;
         this.modelMapper = modelMapper;
+        this.messages = messages;
     }    
     
+    @ApiOperation(value = "View a list of available products", response = List.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successfully retrieved list"),
+            @ApiResponse(code = 401, message = "002 - Product list is empty."),
+
+    })
     @GetMapping("/product")
     @ResponseBody
     public ResponseEntity<?> list() {
@@ -58,6 +67,12 @@ public class ProductController {
     	}
     }
 
+    @ApiOperation(value = "View the information of a product", response = ProductDTO.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successfully retrieved list"),
+            @ApiResponse(code = 401, message = "001 - Product doesn't exist!"),
+
+    })
     @GetMapping("/product/{id}")
     @ResponseBody
     public ResponseEntity<?> getById(@PathVariable("id") Integer id) {
