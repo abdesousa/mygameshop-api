@@ -17,9 +17,10 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<start-class>com.mygameshop.MyGameShopApplication</start-class>
+		<start-class>com.mygameshop.api.MyGameShopApplication</start-class>
 		<docker.image.prefix>mygameshop-api</docker.image.prefix>
-
+		<docker.image.tag> latest </docker.image.tag>
+		<docker.image.name>neueda/mygameshop-api</docker.image.name>
 	</properties>
 
 	<dependencies>
@@ -87,14 +88,35 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/dockerfile</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/main/docker</directory>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 
 			<plugin>
-				<groupId>com.mygameshop.api</groupId>
+				<groupId>com.spotify</groupId>
 				<artifactId>docker-maven-plugin</artifactId>
-				<version>0.2.3</version>
+				<version>0.4.10</version>
 				<configuration>
-					<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
-					<dockerDirectory>src/main/docker</dockerDirectory>
+					<imageName>${docker.image.name}:${docker.image.tag}</imageName>
+					<dockerDirectory>${basedir}/target/dockerfile</dockerDirectory>
 					<resources>
 						<resource>
 							<targetPath>/</targetPath>
@@ -105,5 +127,5 @@
 				</configuration>
 			</plugin>
 		</plugins>
-	</build>	
+	</build>
 </project>

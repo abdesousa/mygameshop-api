@@ -5,8 +5,6 @@
  */
 package com.mygameshop.api.components;
 
-import java.util.Locale;
-
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +22,8 @@ public class Messages {
 
 	@PostConstruct
 	private void init() {
-		//messageSource.setBasename("/WEB-INF/messages");
 		accessor = new MessageSourceAccessor(messageSource);
-		// accessor = new MessageSourceAccessor(messageSource, new Locale("pt", "BR"));
-		//accessor = new MessageSourceAccessor(messageSource, new Locale("en","US"));
+
 	}
 
 	public String get(String code) {
