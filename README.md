@@ -22,7 +22,7 @@ I created this api to demonstrate my abilities as software developer.
 * Swagger2
 
 ## Decisions Made:
-* URL Shortener: Once I have never created an URL shortner I focused on my strenghts. During the week I will update the project with a solution for this.
+* URL Shortener: Since I never created a URL shortener, I focused on my strengths. During the week I will update the project with a solution for this.
 * Security: Basic Authentication on the data in transit in order to ensure a reliable communication to the single test application. Think about the use of oAuth2 instead of basic authentication for 
 solution which requires a high level of security.  
 * Spring boot: Once I have a large background with java Springboot was the natural choose. With Spring is possible to create robust apis in few lines of code.
