@@ -1,14 +1,26 @@
 # My Game Shop API
 ## Table of contents
 * [General info](#general-info)
+* [Recommended design](#recommended-design)
 * [Technologies](#technologies)
 * [Decisions Made](#decisions-made)
+
 * [API](#api)
 * [Github repository](#github-repository)
 * [Setup](#setup)
 
 ## General info
 I created this api to demonstrate my abilities as software developer.
+
+## Recommended design
+
+* Image
+<img src="https://drive.google.com/open?id=1gJwMP_OZ5IY0R1_o0F8XPnGH2ItXz4Ga"
+     alt="Recommended design thru cloud"/>
+
+* Host: Cloud (Azure) - Cloud can bring benefits like multi region, auto scale,multi tenant, monitoring and backup tools.
+* Container oriented: Fits better in a scenario where high scalability is mandatory, once, it is possible automatically add more resources (memory or vcpus) or even add more containers running in parallel.
+* Security: Application gateway with DDoS protection plus security groups well defined increases the reliability of the solution.
 
 ## Technologies
 
