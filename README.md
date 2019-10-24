@@ -14,9 +14,7 @@ I created this api to demonstrate my abilities as software developer.
 
 ## Recommended design
 
-* Image
-<img src="https://drive.google.com/open?id=1gJwMP_OZ5IY0R1_o0F8XPnGH2ItXz4Ga"
-     alt="Recommended design thru cloud"/>
+* Diagram (https://drive.google.com/open?id=1gJwMP_OZ5IY0R1_o0F8XPnGH2ItXz4Ga)
 
 * Host: Cloud (Azure) - Cloud can bring benefits like multi region, auto scale,multi tenant, monitoring and backup tools.
 * Container oriented: Fits better in a scenario where high scalability is mandatory, once, it is possible automatically add more resources (memory or vcpus) or even add more containers running in parallel.
